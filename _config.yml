@@ -1,0 +1,23 @@
+# Site settings
+title: Friedrich Ewald
+tagline: Journal
+email: hello@fewald.net
+description: > # this means to ignore newlines until "baseurl:"
+  Thoughts, links and things I want to remember.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://fewald.net" # the base hostname & protocol for your site
+version: 1.0
+
+links:
+  twitter: fewald_net
+
+# Build settings
+markdown: kramdown
+
+# Items per page
+paginate: 50
+
+plugins: [jekyll-paginate]
+
+sass:
+  style: compressed
