@@ -3,9 +3,24 @@ layout: default
 ---
 
 <div class="post" itemid="{{page.url}}" itemscope itemtype="http://schema.org/BlogPosting" >
+  <script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
   <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
   <time itemprop="datePublished" date="{{page.date}}" />
-  <span class="post-date">{{ page.date | date_to_string }} by <span itemscope itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">Friedrich Ewald</span></span></span>
-  <span itemprop="articleBody">{{ content }}</span>
+  <span class="post-date">{{ page.date | date_to_string }}</span>
+  <div id='map' style="height: 25em;"></div>
+  <span>{{ content }}</span>
+  <script>
+  L.mapbox.accessToken = 'pk.eyJ1IjoiZi1ld2FsZCIsImEiOiJjaWgweGZ3eXkweG94d3ltMGE3bm9ubXM0In0.x3SUMBMxjgfAIDU5DtjH8A';
+  var map = L.mapbox.map('map')
+      .setView([{{ page.lat }}, {{ page.lon }}], 14)
+      .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+
+      var marker = L.marker([{{ page.lat }}, {{ page.lon }}], {
+        icon: L.mapbox.marker.icon({
+          'marker-color': '#f86767'
+        })
+      }).addTo(map);
+  </script>
   <hr />
 </div>
