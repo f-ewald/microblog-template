@@ -7,11 +7,12 @@ layout: default
   <ul class="post-list">
     {% for post in paginator.posts %}
       <li>
-        <span class="post-meta post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+          <span class="post-meta post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </a>
         <p>
           {{ post.content }}
         </p>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Permalink</a>
       </li>
       <hr />
     {% endfor %}
