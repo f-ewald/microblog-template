@@ -11,7 +11,7 @@ layout: default
           {{ post.content }}
         </p>
         <span class="post-meta post-date">
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.date | date: "%b %-d, %Y %H:%M" }}</a>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.date | date: "%b %-d, %Y %H:%M" }} UTC</a>
         </span>
       </li>
       <hr />
